@@ -1,3 +1,7 @@
-from app import app as application
 import sys
-sys.path.insert(0, '/var/www/webapp')
+sys.path.insert(0, '/var/www/')
+sys.path.append('/var/www/webapp')
+
+from webapp import app as application
+
+
