@@ -1,3 +1,5 @@
+- apt: name=libapache2-mod-wsgi state=present
+
 - name: Copy the apache configuration file
   copy: 
     src: "{{app_download_dest}}/apache.conf" 
