@@ -1,3 +1,5 @@
+- apt: name=python-pip state=present
+
 - git: repo={{app_repo}}
        dest="{{app_download_dest}}"
 

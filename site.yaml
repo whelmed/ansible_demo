@@ -1,5 +1,5 @@
 - name: Copy the apache configuration file
   copy: 
     src: "{{app_download_dest}}/apache.conf" 
-    dest: /etc/apache2/sites-available/ 
-    notify: "Restart Apache"
+    dest: /etc/apache2/sites-available/000-default.conf
+  notify: "Restart Apache"
