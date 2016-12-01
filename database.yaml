@@ -1,0 +1,7 @@
+- apt: name=python-mysqldb state=present
+
+# Create database user with name 'appuser' and password '94nfsUl7' with all database privileges
+- mysql_user: name=appuser password=94nfsUl7 priv=*.*:ALL state=present
+
+# Create a new database with name 'appdata'
+- mysql_db: name=appdata state=present

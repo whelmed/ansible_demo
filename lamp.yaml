@@ -1,0 +1,41 @@
+---
+- hosts: all
+  gather_facts: false
+  connection: local
+  become: yes
+
+  vars:
+    packages:
+      - apache2
+      - mysql-server
+      - mysql-common
+      - mysql-client
+      - libapache2-mod-wsgi
+    services:
+      - apache2
+      - mysql
+
+  tasks:
+    - name: Install our packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ packages }}"
+
+    - name: Confirm services are running
+      service:
+        name: "{{ item }}"
+        state: running
+      with_items: "{{ services }}"
+      
+    - name: Enable Apache2 modssl
+      shell: a2enmod ssl
+
+    - name: Enable Apache2 Default HTTPS site
+      shell: a2ensite default-ssl
+
+
+    - name: Restart Apache 
+      service:
+        name: apache2
+        state: restarted
