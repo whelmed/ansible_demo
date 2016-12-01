@@ -37,7 +37,7 @@ class Greeting(db.Model):
 @app.route("/")
 def main():
     """ The index.html route """
-    return render_template('index.html')
+    return render_template('index.html', greetings=Greeting.query.all())
 
 # Make sure the tables exist
 db.create_all()

@@ -2,6 +2,8 @@
 <title>Deploying an app with Ansible</title>
 <head></head>
 <body>
-    
+    {% for greeting in greetings %}
+        <p>{{ greeting.message }}</p>
+    {% endfor %}
 </body>
 </html>
