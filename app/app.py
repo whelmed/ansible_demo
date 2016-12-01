@@ -23,7 +23,7 @@ class Greeting(db.Model):
     @classmethod
     def get_or_create(cls, message):
         """ Gets or creates a Greeting """
-        record = db.query(cls).filter(cls.message == message).first()
+        record = cls.query(cls).filter(cls.message == message).first()
 
         if record:
             return record
