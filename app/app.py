@@ -30,7 +30,7 @@ class Greeting(db.Model):
 
         record = cls(message=message)
         db.session.add(record)
-        db.session.flush()
+        db.session.commit()
 
         return record
 
