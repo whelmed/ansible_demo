@@ -4,7 +4,10 @@
 <body>
     <h2>Greetings</h2>
     <form>
-        <input type=text name="greeting">
+        <h3>Add a new greeting</h3>
+        <input type="text" name="greeting" />
+        <br>
+        <input type="submit" value="Add Greeting" />
     </form>
     {% for greeting in greetings %}
         <p>{{ greeting.message }}</p>
