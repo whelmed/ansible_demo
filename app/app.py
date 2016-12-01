@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 # This is a demo, so a hard coded username and password is okay.
