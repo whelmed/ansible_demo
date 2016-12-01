@@ -34,7 +34,7 @@ class Greeting(db.Model):
 
         return record
 
-@app.route("/")
+@app.route("/", method=['GET', 'POST'])
 def main():
     """ The index.html route """
     if request.method == 'POST':
