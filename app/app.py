@@ -29,8 +29,8 @@ class Greeting(db.Model):
             return record
 
         record = cls(message=message)
-        db.add(record)
-        db.flush()
+        db.session.add(record)
+        db.session.flush()
 
         return record
 
