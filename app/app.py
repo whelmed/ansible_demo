@@ -39,7 +39,7 @@ def main():
     """ The index.html route """
     if request.method == 'POST':
         if request.form['greeting'] is not None:
-            Greeting.get_or_create("Hello!")
+            Greeting.get_or_create(request.form['greeting'])
 
     return render_template('index.html', greetings=Greeting.query.all())
 
