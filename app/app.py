@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -37,6 +37,10 @@ class Greeting(db.Model):
 @app.route("/")
 def main():
     """ The index.html route """
+    if request.method == 'POST':
+        if request.form['greeting'] is not None:
+            Greeting.get_or_create("Hello!")
+
     return render_template('index.html', greetings=Greeting.query.all())
 
 # Make sure the tables exist
